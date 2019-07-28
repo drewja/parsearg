@@ -1,5 +1,3 @@
-# main.py
-
 """
     parse arguments in the traditional unix way:
     -f --flag[=WORD] positional
@@ -21,8 +19,8 @@ def parse(args: Sequence[str]) -> Tuple[list, list, dict]:
         if arg.startswith('--'):
             arg = arg[2:]
             if '=' in arg:
-                k, v = arg.split('=')
-                pairs[k]=v
+                k, v = arg.split('=', 1)
+                pairs[k] = v
                 continue
             flags.append(arg)
             continue
