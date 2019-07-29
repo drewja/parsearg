@@ -1,20 +1,19 @@
 """
     parse arguments in the traditional unix way:
-    -f --flag[=WORD] positional
-    returns a list of arguments and key-value pairs
+    -f --flag --flag[=WORD] positional
 """
 from typing import Sequence, Tuple, List, Dict
 
-def parse(args: Sequence[str]) -> Tuple[list, list, dict]:
+def parse(arguments: Sequence[str]) -> Tuple[list, list, dict]:
     """ 
-        parses a list of argument strings and returns a tuple of the form 
-        ([args], [flags], {flag pairs})
+        Parses an iterable of argument strings and returns a tuple of arguments,
+        flags, and key-value pairs. ([args], [flags], {flag pairs})
     """
     pos = []
     flags = []  
     pairs = {}
 
-    for arg in args:
+    for arg in arguments:
 
         if arg.startswith('--'):
             arg = arg[2:]

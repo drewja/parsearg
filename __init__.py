@@ -1,1 +1,3 @@
-from main import *
+from .main import parse
+
+
